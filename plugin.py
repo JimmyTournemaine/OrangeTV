@@ -6,6 +6,7 @@
     <params>
         <param field="Address" label="IP Address" width="200px" required="true"/>
         <param field="Port" label="Port" width="40px" required="true" default="8080"/>
+        <param field="Interval" label="Interval" width="40px" required="true" default="30"/>
     </params>
 </plugin>
 """
@@ -172,7 +173,7 @@ class Plugin:
                 Name="OrangeTVConn", Transport="TCP/IP", Protocol="HTTP", Address=Parameters["Address"], Port=Parameters["Port"])
             self.OrangeTVConn.Connect()
 
-            Domoticz.Heartbeat(1)
+            Domoticz.Heartbeat(Pamarameters["Interval"])
         else:
             Domoticz.Error(
                 "Plugin::onStart: Domoticz Python env error {}".format(errmsg))
