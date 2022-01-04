@@ -173,7 +173,7 @@ class Plugin:
                 Name="OrangeTVConn", Transport="TCP/IP", Protocol="HTTP", Address=Parameters["Address"], Port=Parameters["Port"])
             self.OrangeTVConn.Connect()
 
-            Domoticz.Heartbeat(Pamarameters["Interval"])
+            Domoticz.Heartbeat(Parameters["Interval"])
         else:
             Domoticz.Error(
                 "Plugin::onStart: Domoticz Python env error {}".format(errmsg))
