@@ -12,6 +12,7 @@
 """
 
 import json
+import os
 errmsg = ""
 try:
     import Domoticz
@@ -145,7 +146,8 @@ def is_running(Device):
 
 
 def load_epg():
-    with open("/home/domoticz/domoticz/plugins/OrangeTV/epg_id.json") as epg_file:
+    plug_dir = os.path.dirname(os.path.realpath(__file__))
+    with open(f"{plug_dir}/epg_id.json") as epg_file:
         epg = json.load(epg_file)
     return {v: k for k, v in epg.items()}
 
